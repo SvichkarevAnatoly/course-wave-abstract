@@ -5,7 +5,12 @@ BIBTEX = bibtex
 PDFLATEX = pdflatex --file-line-error-style --shell-escape
 TEXFILE = Svichkarev_abstract.tex
 INCLUDES = \
-	parts/titlepage.tex
+	parts/titlepage.tex \
+	parts/intro.tex \
+	parts/aspermethod.tex \
+	parts/decompmethod.tex \
+	parts/slowvar.tex \
+	parts/secular.tex
 # BIBLIO = \
 # 	citations.bib
 # STYLES = \
@@ -19,10 +24,10 @@ INCLUDES = \
 
 .PHONY: pdf clean veryclean
 
-build: $(TEXFILE) #$(INCLUDES) $(STYLES) $(BIBLIO) $(FIGURES)
+build: $(TEXFILE) $(INCLUDES) #$(STYLES) $(BIBLIO) $(FIGURES)
 	$(PDFLATEX) $<;
 	# $(BIBTEX) $(<:.tex=)
-	# $(PDFLATEX) $<;
+	$(PDFLATEX) $<;
 	# $(PDFLATEX) $<;
 	# $(PDFLATEX) $<;
 
