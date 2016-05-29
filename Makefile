@@ -11,11 +11,10 @@ INCLUDES = \
 	parts/decompmethod.tex \
 	parts/slowvar.tex \
 	parts/secular.tex
-# BIBLIO = \
-# 	citations.bib
-# STYLES = \
-# 	thesisby.cls \
-# 	utf8gost71u.bst
+BIBLIO = \
+	parts/citations.bib
+STYLES = \
+	parts/utf8gost71u.bst
 # FIGURES = \
 # 	figs/rastrigin.eps \
 # 	figs/m5.eps \
@@ -24,11 +23,11 @@ INCLUDES = \
 
 .PHONY: pdf clean veryclean
 
-build: $(TEXFILE) $(INCLUDES) #$(STYLES) $(BIBLIO) $(FIGURES)
+build: $(TEXFILE) $(INCLUDES) $(BIBLIO) $(STYLES) #$(FIGURES)
 	$(PDFLATEX) $<;
-	# $(BIBTEX) $(<:.tex=)
+	$(BIBTEX) $(<:.tex=)
 	$(PDFLATEX) $<;
-	# $(PDFLATEX) $<;
+	$(PDFLATEX) $<;
 	# $(PDFLATEX) $<;
 
 pdf: build clean
@@ -40,14 +39,13 @@ clean:
 	$(TEXFILE:.tex=.aux) \
 	$(TEXFILE:.tex=.log) \
 	$(TEXFILE:.tex=.out) \
-	$(TEXFILE:.tex=.toc) 
-
-veryclean: clean
-	@rm -f \
-	$(TEXFILE:.tex=.pdf) \
+	$(TEXFILE:.tex=.toc) \
 	$(TEXFILE:.tex=.bbl) \
 	$(TEXFILE:.tex=.blg) \
 	$(TEXFILE:.tex=.brf) \
 	$(TEXFILE:.tex=.bm)
-	@rm -f *.pdf
+
+veryclean: clean
+	@rm -f \
+	$(TEXFILE:.tex=.pdf)
 
