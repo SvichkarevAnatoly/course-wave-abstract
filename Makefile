@@ -4,19 +4,8 @@ LATEX = latex
 BIBTEX = bibtex
 PDFLATEX = pdflatex --file-line-error-style --shell-escape
 TEXFILE = Svichkarev_abstract.tex
-# INCLUDES = \
-# 	parts/abstract.tex \
-# 	parts/intro.tex \
-# 	parts/legend.tex \
-# 	parts/titlepage.tex \
-# 	parts/main/theory.tex \
-# 	parts/main/implementation.tex \
-# 	parts/main/interpreter.tex \
-# 	parts/main/test_function.tex \
-# 	parts/main/experiment.tex \
-# 	parts/main/tracker.tex \
-# 	parts/conclusions.tex \
-# 	parts/end.tex
+INCLUDES = \
+	parts/titlepage.tex
 # BIBLIO = \
 # 	citations.bib
 # STYLES = \
