@@ -9,8 +9,6 @@ INCLUDES = \
 	parts/intro.tex \
 	parts/aspermethod.tex \
 	parts/decompmethod.tex \
-	parts/slowvar.tex \
-	parts/secular.tex \
 	parts/solution.tex
 BIBLIO = \
 	parts/citations.bib
