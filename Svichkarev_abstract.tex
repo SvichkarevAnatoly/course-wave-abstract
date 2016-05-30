@@ -13,9 +13,16 @@
 }
 
 \usepackage{amsmath} % для математических формул и для автоматического добавления скобок при цитировании
+\usepackage{physics} % Для дифференцирования
+\usepackage{IEEEtrantools} % для создания многострочных математических формул
+\usepackage{mathtools} % для знака модулю для дроби
+
 \usepackage[justification=centering]{caption} % подписи таблиц посередине
 
 \newcommand{\No}{\textnumero} % для значка №
+% для подписи под пределом
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\DeclarePairedDelimiter\Abs{\lvert}{\rvert} % для знака модуля для дроби
 
 % \graphicspath{{./figs/}}
 
