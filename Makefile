@@ -49,4 +49,5 @@ clean:
 veryclean: clean
 	@rm -f \
 	$(TEXFILE:.tex=.pdf)
+	@rm -f figs/*.pdf
 

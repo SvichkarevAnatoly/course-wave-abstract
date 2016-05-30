@@ -17,8 +17,9 @@
 решение задачи представляется
 первыми двумя членами возмущённого разложения:
 \begin{align}
-    u(t, \varepsilon) & = u_0(t) + \varepsilon u_1(t) + O(\varepsilon^2) \nonumber \\
-    u(t, \varepsilon) & \simeq u_0(t) + \varepsilon u_1(t). \label{Eq:u}
+    u(x, t, \varepsilon) & = u_0(x, t) + \varepsilon u_1(x, t) +
+    O(\varepsilon^2) \nonumber \\
+    u(x, t, \varepsilon) & \simeq u_0(x, t) + \varepsilon u_1(x, t). \label{Eq:u}
 \end{align}
 
 Для бегущей переменной $z = x - V t$
@@ -29,16 +30,13 @@
 \end{equation*}
 
 Операторы дифференцирования принимают вид:
-\begin{equation*}
-    \begin{gathered}
-        \partial_x = \partial_z =  
-        \pdv{z}{x} \partial_z + \pdv{T}{x} \partial_T \\
-        \partial_t = \pdv{u}{t} =
-        \pdv{z}{t} \partial_z + \pdv{T}{t} \partial_T =
-        -V \partial_z + \varepsilon \partial_t
-        % TODO последнее слагаемое не в индексе, похоже на опечатку, проверить
-    \end{gathered}
-\end{equation*}
+\begin{align}
+    \partial_x = \partial_z & =  
+    \pdv{z}{x} \partial_z + \pdv{T}{x} \partial_T \\
+    \partial_t & = \pdv{u}{t} =
+    \pdv{z}{t} \partial_z + \pdv{T}{t} \partial_T =
+    -V \partial_z + \varepsilon \partial_t
+\end{align}
 
 Обозначим за $F$ исходное уравнение:
 \begin{equation} \label{Eq:F}
@@ -147,4 +145,46 @@
 для решения второго уравнения системы \eqref{Eq:system}.
 Шаги решения аналогичны решению первого уравнения.
 
-Решение задачи выполнялось в Wolfram Mathematica 10.4.1:
+Вывод выполнялся в Wolfram Mathematica 10.4.1.
+
+Было получено решение:
+\begin{equation*}
+    u = 12 b \cosh^{-2}(x - 4 b t) +
+    \varepsilon \left[ 12 a_2 a_3 b^2 \cosh(\sqrt{\frac{1}{b}} (x - 3 t)) -
+    6 a_2 a_3 b^2 \right],
+\end{equation*}
+
+что соответствует первым двум членам возмущённого разложения \eqref{Eq:u}.
+
+Ниже приведены графики решения
+при $b = 1, t = 1, a_2 = 1, a_3 = 1$.
+
+Параметр $\varepsilon$ принимает 3 значения,
+различающиеся на порядок (конкретное значение указано в подписи к рисункам).
+
+Синей линией показан первый член разложения $u_0$,
+коричневой --- первые два члена разложения $u \sim O(\varepsilon^2)$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{triv005}
+    \caption{График решения при $\varepsilon = 0.05$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{triv0005}
+    \caption{График решения при $\varepsilon = 0.005$}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{triv00005}
+    \caption{График решения при $\varepsilon = 0.0005$}
+\end{figure}
+
+Из рисунков видно, что при $\varepsilon \to 0$
+решение $u$ стремится к решению невозмущённого уравнения КдВ.
+
+\section*{Выводы}
+\addcontentsline{toc}{subsection}{Выводы}
+
+f
