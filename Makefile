@@ -7,6 +7,7 @@ TEXFILE = Svichkarev_abstract.tex
 INCLUDES = \
 	parts/titlepage.tex \
 	parts/intro.tex \
+	parts/history.tex \
 	parts/aspermethod.tex \
 	parts/decompmethod.tex \
 	parts/solution.tex
