@@ -10,34 +10,34 @@
 \addcontentsline{toc}{subsection}{Возмущения по параметру}
 Рассмотрим асимптотический метод возмущения по параметру.
 
-Задачи, в которых задана функция $u(x, \varepsilon)$
+Задачи, в которых задана функция $u(x, \ep)$
 могут быть сформулированы с помощью
 дифференциального уравнения:
 \begin{equation}
     \label{Eq:L}
-    L(u, x, \varepsilon) = 0
+    L(u, x, \ep) = 0
 \end{equation}
 с ограничениями в виде:
 \begin{equation}
     \label{Eq:B}
-    B(u, \varepsilon) = 0,
+    B(u, \ep) = 0,
 \end{equation}
 где $x$ --- скаляр или вектор, обозначающий независимую переменную,\\
-а $\varepsilon$ - параметр задачи.
+а $\ep$ - параметр задачи.
 
-Если $\exists \, \varepsilon = \varepsilon_0$
-такое, что задача решается, то для малых $\varepsilon$
-можно получить решение разложением по степеням $\varepsilon$:
+Если $\exists \, \ep = \ep_0$
+такое, что задача решается, то для малых $\ep$
+можно получить решение разложением по степеням $\ep$:
 \begin{equation*}
-   u(x, \varepsilon) = u_0(x) + \varepsilon u_1(x) + \
-   \varepsilon^2 u_2(x) + \dots,
+   u(x, \ep) = u_0(x) + \ep u_1(x) + \
+   \ep^2 u_2(x) + \dots,
 \end{equation*}
-где $u_n$ не зависит от $\varepsilon$,\\
-а $u_0(x)$ - решение задачи при $\varepsilon = 0$.
+где $u_n$ не зависит от $\ep$,\\
+а $u_0(x)$ - решение задачи при $\ep = 0$.
 
 Это разложение затем можно подставить
 в \eqref{Eq:L} и \eqref{Eq:B},
-разложить аналогично по степеням $\varepsilon$,
+разложить аналогично по степеням $\ep$,
 и так как коэффициенты степеней обращаются в 0 независимо,
 можно решить систему уравнений.
 
@@ -69,10 +69,10 @@
 не обязательно раскладывать функцию по степенному ряду.
 
 Можно использовать \textbf{асимптотическую последовательность} функции
-$\delta_n(\varepsilon)$ с условием:
+$\delta_n(\ep)$ с условием:
 \begin{equation*}
-    \delta_n(\varepsilon) = o[\delta_{n-1}(\varepsilon)] \
-    \text{при}\ \varepsilon \to 0.
+    \delta_n(\ep) = o[\delta_{n-1}(\ep)] \
+    \text{при}\ \ep \to 0.
 \end{equation*}
 % TODO добавить про O-o асимптотику.
 
@@ -81,23 +81,23 @@ $\delta_n(\varepsilon)$ с условием:
 асимптотической последовательности функций.
 Другими примерами асимптотических последовательностей могут являться:
 \begin{equation*}
-    \sin^n(\varepsilon), \quad \ctg^{-n}(\varepsilon), \quad
-    \log^{-n}(\varepsilon), \quad \varepsilon^{n/3}
+    \sin^n(\ep), \quad \ctg^{-n}(\ep), \quad
+    \log^{-n}(\ep), \quad \ep^{n/3}
 \end{equation*}
 
 Назовём \textbf{асимптотическим разложением} сумму:
 \begin{equation*}
-    y \sim \sum_{m=0}^\infty a_m \delta_m(\varepsilon)
-    \text{ при } \varepsilon \to 0,
+    y \sim \sum_{m=0}^\infty a_m \delta_m(\ep)
+    \text{ при } \ep \to 0,
 \end{equation*}
 
 тогда и только тогда, когда:
 \begin{equation*}
-    y = \sum_{m=0}^{n-1} a_m \delta_m(\varepsilon)
-    + O[\delta_n(\varepsilon)]
-    \text{ при } \varepsilon \to 0,
+    y = \sum_{m=0}^{n-1} a_m \delta_m(\ep)
+    + O[\delta_n(\ep)]
+    \text{ при } \ep \to 0,
 \end{equation*}
 
-где $a_m$ не зависит от $\varepsilon$
-и $\delta_m(\varepsilon)$ --- асимптотическая последовательность.
+где $a_m$ не зависит от $\ep$
+и $\delta_m(\ep)$ --- асимптотическая последовательность.
 

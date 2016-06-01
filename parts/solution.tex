@@ -1,12 +1,12 @@
 \chapter*{Получение асимптотического решения на примере}
 \addcontentsline{toc}{section}{Получение асимптотического решения на примере}
 
-Получим асимптотическое решение $O(\varepsilon^2)$
+Получим асимптотическое решение $O(\ep^2)$
 в виде бегущей волны,
 зависящей от $z=x-Vt$,
 для возмущенного уравнения КдВ:
 \begin{equation*}
-    u_t + u u_x + b u_{xxx} = \varepsilon f(u),
+    u_t + u u_x + b u_{xxx} = \ep f(u),
 \end{equation*}
 где
 \begin{equation*}
@@ -17,13 +17,13 @@
 решение задачи представляется
 первыми двумя членами возмущённого разложения:
 \begin{align}
-    u(x, t, \varepsilon) & = u_0(x, t) + \varepsilon u_1(x, t) +
-    O(\varepsilon^2) \nonumber \\
-    u(x, t, \varepsilon) & \simeq u_0(x, t) + \varepsilon u_1(x, t). \label{Eq:u}
+    u(x, t, \ep) & = u_0(x, t) + \ep u_1(x, t) +
+    O(\ep^2) \nonumber \\
+    u(x, t, \ep) & \simeq u_0(x, t) + \ep u_1(x, t). \label{Eq:u}
 \end{align}
 
 Для бегущей переменной $z = x - V t$
-введём медленное время $T = \varepsilon t$,\\
+введём медленное время $T = \ep t$,\\
 тогда:
 \begin{equation*}
     z = x - V(T) t % TODO перепроверить, непонятная запись
@@ -35,23 +35,23 @@
     \pdv{z}{x} \partial_z + \pdv{T}{x} \partial_T \\
     \partial_t & = \pdv{u}{t} =
     \pdv{z}{t} \partial_z + \pdv{T}{t} \partial_T =
-    -V \partial_z + \varepsilon \partial_t
+    -V \partial_z + \ep \partial_t
 \end{align}
 
 Обозначим за $F$ исходное уравнение:
 \begin{equation} \label{Eq:F}
-    F = u_t + u u_x + b u_{xxx} - \varepsilon f(u) = 0 
+    F = u_t + u u_x + b u_{xxx} - \ep f(u) = 0 
 \end{equation}
 
 Тогда после подстановки описанных выше преобразований получим:
 \begin{equation*}
-    F(u, u_z, u_{zzz}, T, \varepsilon) =
-    -V(T) u_z + \varepsilon u_T + u u_z + b u_{zzz} +
-    \varepsilon (a_1 u - a_2 u^2 + a_3 u^3) = 0
+    F(u, u_z, u_{zzz}, T, \ep) =
+    -V(T) u_z + \ep u_T + u u_z + b u_{zzz} +
+    \ep (a_1 u - a_2 u^2 + a_3 u^3) = 0
 \end{equation*}
 
 Подставим решение \eqref{Eq:u} в \eqref{Eq:F}
-и сгруппируем коэффициенты при степенях $\varepsilon$.
+и сгруппируем коэффициенты при степенях $\ep$.
 % TODO опасная зона, нужно разбираться
 Так как коэффициенты степеней обращаются в 0 независимо,
 можно решить систему из двух уравнений:
@@ -60,8 +60,8 @@
     \left\{ \,
     \begin{IEEEeqnarraybox}[][c]{l?s}
         \IEEEstrut
-            F(u_0) = 0 & для $\varepsilon^0$ \\
-            L u_1 = f(u_0) & для $\varepsilon^1$,
+            F(u_0) = 0 & для $\ep^0$ \\
+            L u_1 = f(u_0) & для $\ep^1$,
         \IEEEstrut
     \end{IEEEeqnarraybox}
     \right.
@@ -90,7 +90,7 @@
     \end{gathered}
 \end{equation*}
 
-При степени $\varepsilon^0$ коэффициент
+При степени $\ep^0$ коэффициент
 представляет из себя уравнение Кортевега --- де Фриза (КдВ).
 Для $u_0$ можем взять известное решение:
 \begin{equation*}
@@ -106,7 +106,7 @@
 \end{equation*}
 
 Выразим неизвестные через параметр $k$
-для уравнения при $\varepsilon^0$ из \eqref{Eq:system}:
+для уравнения при $\ep^0$ из \eqref{Eq:system}:
 \begin{equation*}
     \begin{gathered}
         a = 12 b k \\
@@ -150,7 +150,7 @@
 Было получено решение:
 \begin{equation*}
     u = 12 b \cosh^{-2}(x - 4 b t) +
-    \varepsilon \left[ 12 a_2 a_3 b^2 \cosh(\sqrt{\frac{1}{b}} (x - 3 t)) -
+    \ep \left[ 12 a_2 a_3 b^2 \cosh(\sqrt{\frac{1}{b}} (x - 3 t)) -
     6 a_2 a_3 b^2 \right],
 \end{equation*}
 
@@ -159,29 +159,29 @@
 Ниже приведены графики решения
 при $b = 1, t = 1, a_2 = 1, a_3 = 1$.
 
-Параметр $\varepsilon$ принимает 3 значения,
+Параметр $\ep$ принимает 3 значения,
 различающиеся на порядок (конкретное значение указано в подписи к рисункам).
 
 Синей линией показан первый член разложения $u_0$,
-коричневой --- первые два члена разложения $u \sim O(\varepsilon^2)$.
+коричневой --- первые два члена разложения $u \sim O(\ep^2)$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{triv005}
-    \caption{График решения при $\varepsilon = 0.05$}
+    \caption{График решения при $\ep = 0.05$}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{triv0005}
-    \caption{График решения при $\varepsilon = 0.005$}
+    \caption{График решения при $\ep = 0.005$}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{triv00005}
-    \caption{График решения при $\varepsilon = 0.0005$}
+    \caption{График решения при $\ep = 0.0005$}
 \end{figure}
 
-Из рисунков видно, что при $\varepsilon \to 0$
+Из рисунков видно, что при $\ep \to 0$
 решение $u$ стремится к решению невозмущённого уравнения КдВ.
 
 \section*{Выводы}
