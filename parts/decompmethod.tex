@@ -15,19 +15,19 @@
 Основой метода --- представление
 искомой зависимости $u(t)$ как сложной:
 \begin{equation*}
-    u = u(T_0(t, \lambda), T_1(t, \lambda), \dots),
+    u = u(T_0(t, \varepsilon), T_1(t, \varepsilon), \dots),
 \end{equation*}
 
 где масштабы $T_0, T_1, \dots$
-имеют разный порядок при $\lambda \to 0$.
+имеют разный порядок при $\varepsilon \to 0$.
 Часто достаточно принять
-$T_0 = t, \, T_1 = \lambda t, \, T_2 = \lambda^2 t, \, \dots$
+$T_0 = t, \, T_1 = \varepsilon t, \, T_2 = \varepsilon^2 t, \, \dots$
 
 Оператор дифференцирования при простейшем выборе масштабов
 становится следующим:
 \begin{equation*}
-    \dv{}{t} = \pdv{}{T_0} + \lambda \pdv{}{T_1} +
-    \lambda^2 \pdv{}{T_2} + \dots,
+    \dv{}{t} = \pdv{}{T_0} + \varepsilon \pdv{}{T_1} +
+    \varepsilon^2 \pdv{}{T_2} + \dots,
 \end{equation*}
 
 из обыкновенного дифференциального уравнения
@@ -37,7 +37,7 @@ $T_0 = t, \, T_1 = \lambda t, \, T_2 = \lambda^2 t, \, \dots$
 
 Решение уравнения:
 \begin{equation*}
-    \ddot{u} + u = \lambda f(u, \dot{u})
+    \ddot{u} + u = \varepsilon f(u, \dot{u})
 \end{equation*}
 
 
