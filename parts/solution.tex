@@ -70,39 +70,11 @@
 где $L = -V(T) \partial_z + b \partial_z^3$
 --- линейный дифференциальный оператор.
 
-Данная задача разрешима в следствие альтернативы Фредгольма,
-требуется выполнение условия $f \perp \operatorname{Ker}L^*$.
-\begin{equation*}
-    \begin{gathered}
-        \nu \in \operatorname{Ker}L^* \Rightarrow (f, \nu) = 0 \\
-        (L \nu, w)_{L^2} = (\nu, L^* w)_{L^2} \\
-        w \in C_0^\infty(R).
-    \end{gathered}
-\end{equation*}
-
-Необходимо, чтобы $\Lim{k \rightarrow \infty} |u^k| = 0$.
-
-\begin{equation*}
-    \begin{gathered}
-        \int \left(a u_0 \nu_z - V \nu_z + u_{0,z} \nu + b \nu_{zzz} \right) w dz = \\
-        = \int \nu \left( -(a u_0 \nu)_z + V w_z - u_{0,z} w - b w_{zzz} \right) dz \\
-        \nu \in \operatorname{Ker}L^* \Rightarrow L \nu = 0
-    \end{gathered}
-\end{equation*}
-
 При степени $\ep^0$ коэффициент
 представляет из себя уравнение Кортевега --- де Фриза (КдВ).
 Для $u_0$ можем взять известное решение:
 \begin{equation*}
     u_0 = \alpha \cosh^{-2}(c + k z) 
-\end{equation*}
-
-Тогда
-\begin{equation*}
-    \begin{gathered}
-        L^* u_0 = 0 \Rightarrow u_0 \in \operatorname{Ker}L^* \\
-        (f, u_0) = 0
-    \end{gathered}
 \end{equation*}
 
 Выразим неизвестные через параметр $k$
@@ -113,11 +85,6 @@
         V = 4 b k^2
     \end{gathered}
 \end{equation*}
-
-Из условий $u_0 \in \operatorname{Ker}L^*$
-и $(f, u_0) = 0$ получаем дифференциальное уравнение
-для $k$ и решаем его. Так как это новый параметр,
-то мы удовлетворяем альтернативе Фредгольма.
 
 Для решения второго уравнения системы \eqref{Eq:system}
 решим сначала его с нулевой правой частью, т.е.:
