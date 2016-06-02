@@ -198,26 +198,26 @@ $a = a(T_2, T_3, \dots)$.
 \begin{equation*}
     \begin{gathered}
         a(T_2, T_3, \dots) = a(\ep^2 t, \ep^3 t, \dots) = \\
-        = a(0, 0, \dots) + \pdv{a}{T_2} \ep^2 t + \dots = \hat{a_0} + O(\ep^2 t), \\
+        = a(0, 0, \dots) + \pdv{a}{T_2} \ep^2 t + \dots = \hat{a}_0 + O(\ep^2 t), \\
         \beta_0(T_2, T_3, \dots) = \beta_0(\ep^2 t, \ep^3 t, \dots) = \\
         \beta_0(0, 0, \dots) + \pdv{\beta_0}{T_2} \ep^2 t + \dots =
-        \hat{\beta_0} + O(\ep^2 t)
+        \hat{\beta}_0 + O(\ep^2 t)
     \end{gathered}
 \end{equation*}
 
 Поэтому, заменяя $a$ и $\beta_0$ в \eqref{Eq:uaT2} постоянными величинами
-$\hat{a}$ и $\hat{\beta_0}$, мы имеем:
+$\hat{a}$ и $\hat{\beta}_0$, мы имеем:
 \begin{align*}
-    u = & \hat{a} \cos(T_0 + \frac{3}{8} T_1 \hat{a^2} + \hat{\beta_0}) + \\
-    + & \frac{1}{32} \ep \hat{a^3} \cos(3 T_0 + \frac{9}{8} T_1 \hat{a^2} +
-    3 \hat{\beta_0} ) + O(\ep^2 t),
+    u = & \hat{a} \cos(T_0 + \frac{3}{8} T_1 \hat{a}^2 + \hat{\beta}_0) + \\
+    + & \frac{1}{32} \ep \hat{a}^3 \cos(3 T_0 + \frac{9}{8} T_1 \hat{a}^2 +
+    3 \hat{\beta}_0 ) + O(\ep^2 t),
 \end{align*}
 
 и после возвращения к исходной переменной $t$:
 \begin{align}
-    u = & \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a^2} + \hat{\beta_0}) + \nonumber \\
-    + & \frac{1}{32} \ep \hat{a^3} \cos(3 t + \frac{9}{8} \ep t \hat{a^2} +
-    3 \hat{\beta_0} ) + O(\ep^2 t), \label{Eq:finalT}
+    u = & \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a}^2 + \hat{\beta}_0) + \nonumber \\
+    + & \frac{1}{32} \ep \hat{a}^3 \cos(3 t + \frac{9}{8} \ep t \hat{a}^2 +
+    3 \hat{\beta}_0 ) + O(\ep^2 t), \label{Eq:finalT}
 \end{align}
 
 Анализ формулы \eqref{Eq:finalT} показывает,
@@ -232,7 +232,7 @@ $\hat{a}$ и $\hat{\beta_0}$, мы имеем:
 должно включать в себя только первый член.
 Итак, для всех моментов времени вплоть до времен порядка $\ep^{-1}$:
 \begin{equation*}
-    u = \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a^2} + \hat{\beta}) + O(\ep). 
+    u = \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a}^2 + \hat{\beta}) + O(\ep). 
 \end{equation*}
 
 Это означает, что для того, чтобы построить равномерное разложение
