@@ -33,10 +33,13 @@ $T_0 = t, \, T_1 = \ep t, \, T_2 = \ep^2 t, \, \dots$
 из обыкновенного дифференциального уравнения
 получается уравнение в частных производных.
 
-Рассмотрим для примера уравнение:
-\begin{equation*}
+\chapter*{Рассмотрение примера}
+\addcontentsline{toc}{subsection}{Рассмотрение примера}
+
+Рассмотрим уравнение:
+\begin{equation} \label{Eq:example}
     \ddot{u} + u + \ep u^3 = 0
-\end{equation*}
+\end{equation}
 
 Выпишем его равномерное разложение:
 \begin{equation*}
@@ -55,6 +58,193 @@ $\ep t, \, \ep^2 t, \, \ep^3 t, \, \dots$.
 
 Это означает, что:
 \begin{equation*}
-    u(t, \ep) = u(t, \ep t, \ep^2 t, \ep^3 t, \ep) 
+    u(t, \ep) = u(t, \ep t, \ep^2 t, \ep^3 t, \dots, \ep) 
 \end{equation*}
+
+или
+\begin{equation*}
+    u(t, \ep) = u(T_0, T_1, T_2, T_3, \dots, \ep),
+\end{equation*}
+
+где аргументы $T_n$ определяются следующим образом:
+\begin{equation*}
+    T_0 = t, \quad T_1 = \ep t, \quad T_2 = \ep^2 t,
+    \quad T_3 = \ep^3 t, \quad \dots
+\end{equation*}
+
+Так как $\ep$ является малым параметром,
+то величины $T_n$ представляют собой
+\textbf{разные временные масштабы исходной задачи}.
+
+Перейдём в исходном уравнении \eqref{Eq:example}
+от независимой переменной $t$ к переменным $T_n$.
+Используя правило дифференцирования сложной функции, получаем:
+\begin{equation*}
+    \begin{gathered}
+        \dv{}{t} = \pdv{}{T_0} + \ep \pdv{}{T_1} +
+        \ep^2 + \pdv{}{T_2} + \dots, \\
+        \dv[2]{}{t} = \pdv[2]{}{T_0} +
+        2 \ep \pdv{}{T_0}{T_1} +
+        \ep^2 \left( 2 \pdv{}{T_0}{T_2} + \pdv[2]{T_1}\right) + \dots. 
+    \end{gathered}
+\end{equation*}
+
+При этом уравнение \eqref{Eq:example} принимает вид:
+\begin{equation} \label{Eq:exPart}
+    \pdv[2]{u}{T_0} = 2 \ep \pdv{u}{T_0}{T_1} +
+    \ep^2 \left( 2 \pdv{u}{T_0}{T_2} + \pdv[2]{u}{T_1} \right) +
+    u + \ep u^3 + \dots = 0.
+\end{equation}
+
+Будем искать приближённое решение уравнения \eqref{Eq:exPart} в виде:
+\begin{equation} \label{Eq:insertDecomp}
+    u = u_0(T_0, T_1, T_2, \dots) +
+    \ep u_1(T_0, T_1, T_2, \dots) + \dots.
+\end{equation}
+
+Подстановка этого разложения в \eqref{Eq:exPart} даёт:
+\begin{equation*}
+    \pdv[2]{u_0}{T_0} + \ep \pdv[2]{u_1}{T_0} +
+    2 \ep \pdv{u_0}{T_0}{T_1} + u_0 +
+    \ep u_1 + \ep u_0^3 + \dots = 0
+\end{equation*}
+
+Приравнивая нулю соответствующие коэффициенты при $\ep^0$ и $\ep^1$,
+имеем:
+\begin{align}
+    \pdv[2]{u_1}{T_0} + u_0 & = 0, \label{Eq:ep0} \\ 
+    \pdv[2]{u_1}{T_0} + u_1 & = -2 \pdv{u_0}{T_0}{T_1} - u_0^3. \label{Eq:ep1} 
+\end{align}
+
+Общее решение уравнения \eqref{Eq:ep0}
+может быть представлено в виде:
+\begin{equation} \label{Eq:u0}
+    u_0 = a(T_1, T_2, \dots) \cos\left[T_0 + \beta(T_1, T_2, \dots)\right]. 
+\end{equation}
+
+Отметим, что в данном случае $a$ и $\beta$ оказываются
+не постоянными величинами, а функциями медленных масштабов $T_1, T_2, \dots$,
+поскольку $u_0$ представляет собой функцию $T_0, T_1, T_2, \dots$,
+а её производные в \eqref{Eq:ep0} берутся по переменной $T_0$.
+На данной ступени апроксимации функциональная зависимость
+$a$ и $\beta$ от $T_1, T_2, \dots$ нам не известна и определяется
+на последующих этапах путём исключения секулярных членов.
+
+Подставляя теперь \eqref{Eq:u0} в \eqref{Eq:ep1}, получаем:
+\begin{align}
+    \pdv[2]{u_1}{T_0} + u_1 = &
+    -2 \pdv{}{T_0}{T_1} \left[ a \cos(T_0 + \beta) \right]
+    -a^3 \cos^3(T_0 + \beta) = \nonumber \\
+    = & 2 \pdv{a}{T_1} \sin(T_0 + \beta) +
+    2 a \pdv{\beta}{T_1} \cos(T_0 + \beta) - \nonumber \\
+    - & \frac{3}{4} a^3 \cos(T_0 + \beta) -
+    \frac{1}{4} a^3 \cos(3 T_0 + 3 \beta) = \nonumber \\
+    = & 2 \pdv{a}{T_1} \sin(T_0 + \beta) +
+    \left( 2 a \pdv{\beta}{T_1} - \frac{3}{4} a^3 \right)
+    \cos(T_0 + \beta) - \frac{1}{4} a^3 \cos(3 T_0 + 3 \beta) \label{Eq:insert}
+\end{align}
+
+Неоднородность в правой части уравнения \eqref{Eq:insert}
+служит источником секулярных членов для функции $u_1$.
+В случае же равномерного разложения подобного рода члены
+должны отсутствовать.
+Этого можно добиться, приравняв нулю коэффициенты при
+$\sin(T_0 + \beta)$ и $\cos(T_0 + \beta)$
+в правой части \eqref{Eq:insert},
+в результате чего получаем:
+\begin{align}
+    \pdv{a}{T_1} & = 0, \label{Eq:seq0} \\
+    2 a \pdv{\beta}{T_1} - \frac{3}{4} a^3 & = 0. \label{Eq:seq1}
+\end{align}
+
+При этом частное решение уравнения \eqref{Eq:insert} принимает вид:
+\begin{equation} \label{Eq:partAns}
+    u_1 = \frac{1}{32} a^3 \cos(3 T_0 + 3 \beta). 
+\end{equation}
+
+Решение уравнения \eqref{Eq:seq0} есть функция
+$a = a(T_2, T_3, \dots)$.
+Тогда при $a \ne 0$ \eqref{Eq:seq1} можно переписать в виде уравнения:
+\begin{equation*}
+    \pdv{\beta}{T_1} = \frac{3}{8} a^2, 
+\end{equation*}
+
+решением которого будет функция:
+\begin{equation} \label{Eq:beta}
+    \beta = \frac{3}{8} a^2 T_1 + \beta_0(T_2, T_3, \dots). 
+\end{equation}
+
+Подставляя выражения для $u_0$ и $u_1$ из \eqref{Eq:u0}
+и \eqref{Eq:partAns} в разложение \eqref{Eq:insertDecomp}, получаем:
+\begin{equation} \label{Eq:decompU}
+    u = a \cos(T_0 + \beta) + \frac{1}{32} \ep a^3 \cos(3 T_0 + 3 \beta) + \dots. 
+\end{equation}
+
+Подставляя теперь выражение для $\beta$ из \eqref{Eq:beta} в \eqref{Eq:decompU}
+и вспоминая, что $a = a(T_2, T_3, \dots)$, находим:
+\begin{align}
+    u = & a(T_2, T_3, \dots) cos\left[ T_0 +
+    \frac{3}{8} T_1 a^2(T_2, T_3, \dots)
+    \beta_0(T_2, T_3, \dots) \right] + \nonumber \\
+    + & \frac{1}{32} \ep a^3(T_2, T_3, \dots) \cos\left[ 3 T_0 + 
+    \frac{9}{8} T_1 a^2(T_2, T_3, \dots) +
+    3 \beta_0(T_2, T_3, \dots) \right] + \dots.  \label{Eq:uaT2}
+\end{align}
+
+Если в разложении \eqref{Eq:uaT2} ограничиться только выписанными членами,
+то в рамках принятой точности функции $a$ и $\beta_0$ можно считать постоянными:
+\begin{equation*}
+    \begin{gathered}
+        a(T_2, T_3, \dots) = a(\ep^2 t, \ep^3 t, \dots) = \\
+        = a(0, 0, \dots) + \pdv{a}{T_2} \ep^2 t + \dots = \hat{a_0} + O(\ep^2 t), \\
+        \beta_0(T_2, T_3, \dots) = \beta_0(\ep^2 t, \ep^3 t, \dots) = \\
+        \beta_0(0, 0, \dots) + \pdv{\beta_0}{T_2} \ep^2 t + \dots =
+        \hat{\beta_0} + O(\ep^2 t)
+    \end{gathered}
+\end{equation*}
+
+Поэтому, заменяя $a$ и $\beta_0$ в \eqref{Eq:uaT2} постоянными величинами
+$\hat{a}$ и $\hat{\beta_0}$, мы имеем:
+\begin{align*}
+    u = & \hat{a} \cos(T_0 + \frac{3}{8} T_1 \hat{a^2} + \hat{\beta_0}) + \\
+    + & \frac{1}{32} \ep \hat{a^3} \cos(3 T_0 + \frac{9}{8} T_1 \hat{a^2} +
+    3 \hat{\beta_0} ) + O(\ep^2 t),
+\end{align*}
+
+и после возвращения к исходной переменной $t$:
+\begin{align}
+    u = & \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a^2} + \hat{\beta_0}) + \nonumber \\
+    + & \frac{1}{32} \ep \hat{a^3} \cos(3 t + \frac{9}{8} \ep t \hat{a^2} +
+    3 \hat{\beta_0} ) + O(\ep^2 t), \label{Eq:finalT}
+\end{align}
+
+Анализ формулы \eqref{Eq:finalT} показывает,
+что ошибка в ней будет иметь порядок $O(1)$ и,
+следовательно, окажется порядка первого члена,
+если $t = O(\ep^{-2})$. Таким образом,
+для значений $t \geq O(\ep^{-2})$ разложение \eqref{Eq:finalT},
+становится непригодным. Если же $t = O(\ep^{-1})$,
+то ошибка будет имеь порядок $\ep$,
+т.е. окажется порядка второго члена разложения, и,
+следовательно, разложение, пригодное при $t = O(\ep^{-1})$,
+должно включать в себя только первый член.
+Итак, для всех моментов времени вплоть до времен порядка $\ep^{-1}$:
+\begin{equation*}
+    u = \hat{a} \cos(t + \frac{3}{8} \ep t \hat{a^2} + \hat{\beta}) + O(\ep). 
+\end{equation*}
+
+Это означает, что для того, чтобы построить равномерное разложение
+первого порядка, мы должны, не решая самого уравнения
+для $u_1$, исключить из него члены, служащие источником секулярных слагаемых,
+найдя тем самым только зависимость $u_0$ от $T_1$.
+
+Точно так же при построении высших приближений полагаем:
+\begin{equation*}
+    u = \sum_{n=0}^{N-1} \ep^n u_n(T_0, T_1, \dots, T_N) + O(\ep^N), 
+\end{equation*}
+
+т.е. если мы ищем разложение N-го порядка,
+то должны учитывать масштабы $T_0, T_1, \dots, T_N$,
+но не включить при этом в рассмотрение член порядка $\ep^N$.
+
 
